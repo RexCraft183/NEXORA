@@ -1,17 +1,26 @@
-# Nocturna Social — prototipo visual e interactivo
+# NEXØRA — primera versión con autenticación
 
-Diseñado siguiendo las referencias visuales compartidas: interfaz móvil oscura, acentos lavanda/morado, navegación inferior con Inicio / Explorar / Crear / Grupos / Perfil, perfiles, reacciones, publicación con encuesta y pantallas de chat.
+Interfaz social móvil oscura con acentos lavanda/morado y acceso mediante Supabase Auth.
 
-## Incluye en esta versión
-- Feed con pestañas Para ti / Siguiendo / Chats.
-- Publicaciones de texto y fotografías (con conversión local a WebP).
-- Reacciones rápidas, encuestas y guardado local.
-- Perfil editable con bio e intereses.
-- Secciones Explorar, Grupos, lista de chats y pantalla de conversación.
-- Diseño responsive y PWA con caché básica.
+## Configuración obligatoria
+1. Abre `supabase-config.js`.
+2. Sustituye `PEGA_AQUI_TU_PROJECT_URL` por la Project URL de Supabase.
+3. Sustituye `PEGA_AQUI_TU_PUBLISHABLE_KEY` por la Publishable key.
+4. No pegues nunca una Secret key ni `service_role` en archivos públicos.
+5. Sube todos los archivos al repositorio y publica con GitHub Pages.
 
-## Limitación importante
-Es un **prototipo de frontend**. Los datos se guardan en el navegador del dispositivo. No existen aún cuentas reales, sincronización entre usuarios, mensajería remota, comentarios reales ni creación de grupos en servidor. Los chats y grupos son demostraciones de interfaz. No lo publiques como red social real hasta conectar un backend, autenticación, almacenamiento seguro, políticas de acceso, moderación, reportes y controles anti-spam.
+## Incluye
+- Inicio de sesión con correo y contraseña.
+- Registro con nombre visible y nombre de usuario.
+- Recuperación de contraseña por correo.
+- Persistencia de sesión gestionada por Supabase.
+- Cierre de sesión desde Perfil.
+- Base visual de la aplicación original.
 
-## Probar
-Extrae el ZIP y abre `index.html`. Para probar instalación PWA/service worker, sirve la carpeta mediante HTTPS o un servidor local. La fuente de Google Fonts es opcional; si no carga, se usan fuentes del sistema.
+## Requisitos en Supabase
+- Authentication > Providers > Email habilitado.
+- Tabla `public.profiles` y trigger de creación automática configurados.
+- Si está habilitada la confirmación de correo, el usuario deberá confirmar su dirección antes de iniciar sesión.
+
+## Estado
+Esta entrega implementa autenticación real. El feed, publicaciones, grupos y mensajes continúan siendo una interfaz local/prototipo y todavía no están sincronizados entre usuarios.

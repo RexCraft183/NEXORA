@@ -2,15 +2,25 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#090d17"><meta name="description" content="Nocturna, una comunidad social ligera.">
-<title>Nocturna — comunidad social</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css">
+<meta name="theme-color" content="#090d17"><meta name="description" content="NEXØRA — conecta, comparte y descubre.">
+<title>NEXØRA — comunidad social</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="app-shell">
+<section id="authScreen" class="auth-screen" aria-live="polite">
+  <div class="auth-glow auth-glow-one"></div><div class="auth-glow auth-glow-two"></div>
+  <div class="auth-card">
+    <div class="auth-brand"><span class="auth-mark">◈</span><span>NEX<span>Ø</span>RA</span></div>
+    <p class="auth-kicker">TU ESPACIO. TU COMUNIDAD.</p>
+    <div id="authContent"></div>
+    <p class="auth-foot">Al continuar, aceptas usar NEXØRA de forma respetuosa y segura.</p>
+  </div>
+</section>
+<div class="app-shell hidden" id="appShell">
 <header class="topbar">
-  <button class="brand" data-page="home"><span class="brand-symbol">◈</span><span>nocturna</span></button>
-  <div class="top-status"><i></i> Comunidad activa</div>
-  <div class="top-actions"><button class="round-btn" id="searchOpen" aria-label="Buscar">⌕</button><button class="round-btn" id="inboxOpen" aria-label="Mensajes">✉</button><button class="mini-avatar" data-page="profile">R</button></div>
+  <button class="brand" data-page="home"><span class="brand-symbol">◈</span><span>NEXØRA</span></button>
+  <div class="top-status"><i></i> Comunidad</div>
+  <div class="top-actions"><button class="round-btn" id="searchOpen" aria-label="Buscar">⌕</button><button class="round-btn" id="inboxOpen" aria-label="Mensajes">✉</button><button class="mini-avatar" data-page="profile" id="topAvatar">N</button></div>
 </header>
 <main id="view" class="view"></main>
 <nav class="bottom-nav" aria-label="Navegación principal">
@@ -23,5 +33,7 @@
 </div>
 <div class="modal-backdrop hidden" id="modalBackdrop"><section class="modal" id="modal" role="dialog" aria-modal="true"></section></div>
 <div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
 <script src="app.js"></script>
 </body></html>
